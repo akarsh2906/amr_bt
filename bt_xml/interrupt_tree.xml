@@ -1,0 +1,32 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Parallel name="main_with_battery_monitor" success_threshold="1" failure_threshold="1">
+
+      <!-- Battery Monitor and Charging -->
+      <Fallback name="battery_monitor">
+        <CheckBattery/>
+        <Sequence name="charging_sequence">
+          <GoToPose loc="charging_station"/>
+          <SimulateCharging/>
+          <AlwaysFailure/>
+        </Sequence>
+      </Fallback>
+
+      <!-- Main Task Sequence -->
+      <Sequence name="task_sequence">
+        <GoToPose loc="station_A"/>
+        <PickItem/>
+
+        <GoToPose loc="station_B"/>
+        <DropItem/>
+
+        <GoToPose loc="station_C"/>
+        <PickItem/>
+
+        <GoToPose loc="station_A"/>
+        <DropItem/>
+      </Sequence>
+
+    </Parallel>
+  </BehaviorTree>
+</root>

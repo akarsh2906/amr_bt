@@ -1,0 +1,4 @@
+station_A: [1.0, 2.0, 1.57]
+station_B: [1.0, -1.0, -1.57]
+station_C: [-1.0, 0.0, 3.14]
+charging_station: [0.0, -2.0, 1.57]
